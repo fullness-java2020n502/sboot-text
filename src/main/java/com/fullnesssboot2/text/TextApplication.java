@@ -1,5 +1,6 @@
 package com.fullnesssboot2.text;
 
+import com.fullnesssboot2.text.bean.Greetable;
 import com.fullnesssboot2.text.bean.MorningGreet;
 import com.fullnesssboot2.text.interfacedepnd.Calculator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,15 @@ public class TextApplication {
 	@Autowired
 	MorningGreet morningGreet;
 
+	// 演習2のDI部分
+	@Autowired
+	Greetable eveningGreet;
+
 	// 2. 追加で動かしたいメソッドを定義
 	public void run(){
-		// 演習1のDIしたインスタンスを実行
+		// 演習1のDIしたインスタンスのメソッドを実行
 		morningGreet.say("山田");
+		// 演習2のIDしたインスタンスのメソッドを実行
+		eveningGreet.say("山田");
 	}
 }
