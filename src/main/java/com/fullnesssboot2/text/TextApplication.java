@@ -16,11 +16,15 @@ public class TextApplication {
 	}
 	// 3. DI（インジェクション）
 	@Autowired // <-自動的にDIコンテナがインスタンス生成してくれる
-	Calculator calculator;
+	Calculator addCalcu; // <-クラス名の先頭単語を小文字にした変数
+
+	@Autowired
+	Calculator subCalcu; // <-クラス名の先頭単語を小文字にした変数
 
 	// 2. 追加で動かしたいメソッドを定義
 	public void run(){
 		// 5. インスタンスを使って処理
-		System.out.println("計算結果:"+calculator.calc(1,4));
+		System.out.println("足し算結果:"+addCalcu.calc(1,4));
+		System.out.println("引き算結果:"+subCalcu.calc(1,4));
 	}
 }
