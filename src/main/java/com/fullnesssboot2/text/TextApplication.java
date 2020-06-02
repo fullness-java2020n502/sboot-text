@@ -1,14 +1,13 @@
-package com.fullnesssboot2.text.interfacedepnd;
+package com.fullnesssboot2.text;
 
 import com.fullnesssboot2.text.bean.Greetable;
 import com.fullnesssboot2.text.bean.MorningGreet;
+import com.fullnesssboot2.text.interfacedepnd.Calculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan("com.fullnesssboot2.text")
 @SpringBootApplication
 public class TextApplication {
 	public static void main(String[] args) {
@@ -17,9 +16,10 @@ public class TextApplication {
 		// 4. これでSpringBoot起動後の処理を追加できる
 		context.getBean(TextApplication.class).run();
 	}
+
 	// 3. DI（インジェクション）
 	@Autowired // <-自動的にDIコンテナがインスタンス生成してくれる
-			Calculator addCalcu; // <-クラス名の先頭単語を小文字にした変数
+	Calculator addCalcu; // <-クラス名の先頭単語を小文字にした変数
 
 	@Autowired
 	Calculator subCalcu; // <-クラス名の先頭単語を小文字にした変数
