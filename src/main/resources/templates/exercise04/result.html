@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/layout">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="#{exercise.title04_result}"></title>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div align="center">
+            <div class="page-header">
+                <h3 th:text="#{exercise.title04_result}"></h3>
+            </div>
+            <div class="container">
+                <h3><span th:text="#{result}"></span><span th:text="${result}"></span></h3>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

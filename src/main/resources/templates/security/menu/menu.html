@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/layout">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{exercise.security.menu.title}"></title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div align="center">
+            <div class="page-header">
+                <h2 th:text="#{exercise.security.menu.title}"></h2>
+            </div>
+            <div class="container">
+                <div align="center">
+                    <form th:action="@{/selectmenu}" method="POST">
+                        <!-- Guset権限を設定 -->
+                            <div class="form-group">
+                                <div class="col-sm-3 col-xs-6">
+                                    <P><button type="submit" class="btn btn-primary" name="exercise" value="1"><span class="badge">&nbsp;4-2&nbsp;</span>&nbsp;演習-01</button></P>
+                                    <p><button type="submit" class="btn btn-primary" name="exercise" value="2"><span class="badge">&nbsp;4-2&nbsp;</span>&nbsp;演習-02</button></p>
+                                    <P><button type="submit" class="btn btn-primary" name="exercise" value="3"><span class="badge">&nbsp;4-3&nbsp;</span>&nbsp;演習-03</button></P>
+                                    <p><button type="submit" class="btn btn-primary" name="exercise" value="4"><span class="badge">&nbsp;4-4&nbsp;</span>&nbsp;演習-04</button></p>
+                                </div>
+                            </div>
+                        
+                        <!-- User権限を設定 -->
+                        
+                            <div class="form-group">
+                                <div class="col-sm-3 col-xs-6">
+                                    <P><button type="submit" class="btn btn-primary" name="exercise" value="5"><span class="badge">&nbsp;4-4&nbsp;</span>&nbsp;演習-05</button></P>
+                                    <p><button type="submit" class="btn btn-primary" name="exercise" value="6"><span class="badge">&nbsp;4-5&nbsp;</span>&nbsp;演習-06</button></p>
+                                    <P><button type="submit" class="btn btn-primary" name="exercise" value="7"><span class="badge">&nbsp;4-5&nbsp;</span>&nbsp;演習-07</button></P>
+                                    <p><button type="submit" class="btn btn-primary" name="exercise" value="8"><span class="badge">&nbsp;4-6&nbsp;</span>&nbsp;演習-08</button></p>
+                                </div>
+                            </div>
+                        
+                        <!-- Admin権限を設定 -->
+                        
+                            <div class="form-group">
+                                <div class="col-sm-3 col-xs-6">
+                                    <P><button type="submit" class="btn btn-primary" name="exercise" value="9"><span class="badge">&nbsp;4-6&nbsp;</span>&nbsp;演習-09</button></P>
+                                    <p><button type="submit" class="btn btn-primary" name="exercise" value="10"><span class="badge">&nbsp;4-7&nbsp;</span>&nbsp;演習-10</button></p>
+                                </div>
+                            </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

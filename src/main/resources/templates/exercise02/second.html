@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/layout">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="#{exercise.title02}"></title>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div align="center">
+            <div class="page-header">
+                <h3 th:text="#{exercise.title02}"></h3>
+            </div>
+            <h2 th:text="2番目の画面"></h2>
+            <div class="container">
+                <form th:action="@{/exercise02}" method="GET">
+                    <button class="btn btn-primary" type="submit" th:text="トップに戻る"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

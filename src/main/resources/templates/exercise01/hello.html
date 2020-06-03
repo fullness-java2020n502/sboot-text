@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/layout">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="#{exercise.title01}"></title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div align="center">
+            <div class="page-header">
+                <h3 th:text="#{exercise.title01}"></h3>
+            </div>
+            <h1>Hello Spring Web MVC!</h1>
+        </div>
+    </div>
+</body>
+</html>
