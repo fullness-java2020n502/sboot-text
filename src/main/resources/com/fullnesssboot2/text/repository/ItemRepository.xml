@@ -3,6 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fullnesssboot2.text.repository.ItemRepository">
     <select id="selectAll" resultType="com.fullnesssboot2.text.entity.Item">
-        select id,name,price,category_id from item
+        select id,name,price,category_id as categoryId from item
     </select>
 </mapper>
