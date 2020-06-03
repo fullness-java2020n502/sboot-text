@@ -8,4 +8,13 @@
     <select id="selectById" resultType="com.fullnesssboot2.text.entity.Item">
         select id,name,price,category_id as categoryId from item where id = #{id}
     </select>
+    <insert id="create" parameterType="com.fullnesssboot2.text.entity.Item">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select nextval('item_seq')
+        </selectKey>
+        insert into item values(#{id},#{name},#{price},#{categoryId})
+    </insert>
+    <update id="updateById" parameterType="com.fullnesssboot2.text.entity.Item">
+        update item set name = #{name}, price = #{price}, category_id = #{categoryId} where id = #{id}
+    </update>
 </mapper>

@@ -9,4 +9,6 @@ import java.util.List;
 public interface ItemRepository {
     List<Item> selectAll();
     Item selectById(Integer id);
+    void create(Item item);
+    Boolean updateById(Item item);
 }
