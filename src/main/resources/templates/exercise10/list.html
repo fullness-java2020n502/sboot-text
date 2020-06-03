@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="演習-10ページネーション"></title>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div align="center">
+            <div class="page-header">
+                <h2 th:text="演習-10ページネーション"></h2>
+            </div>
+            <table class="table table-condensed">
+                <tr class="success">
+                <td th:text="商品番号"></td>
+                <td th:text="商品名"></td>
+                <td th:text="単価"></td>
+                <td th:text="カテゴリ"></td>
+                </tr>
+                <tr th:each="pageRow:${pageList}">
+                    <td th:text="${pageRow.id}"></td>
+                    <td th:text="${pageRow.name}"></td>
+                    <td th:text="${#numbers.formatInteger(pageRow.price,3,'COMMA')}+'円'"></td>
+                    <td th:text="${pageRow.itemCategory.name}"></td>
+                </tr>
+            </table>
+            <div th:include="exercise10/navigator :: pagination_navigator"></div>
+        </div>
+    </div>
+</body>
+</html>
