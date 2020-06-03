@@ -15,4 +15,8 @@ public class ItemRepositoryTest {
     void testSelectAll(){
         itemRepository.selectAll().forEach(item -> System.out.println(item));
     }
+    @Test
+    void testSelectById(){
+        System.out.println(itemRepository.selectById(2));
+    }
 }

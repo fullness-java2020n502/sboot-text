@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface ItemRepository {
     List<Item> selectAll();
+    Item selectById(Integer id);
 }

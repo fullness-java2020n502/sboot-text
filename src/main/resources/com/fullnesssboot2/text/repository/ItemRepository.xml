@@ -5,4 +5,7 @@
     <select id="selectAll" resultType="com.fullnesssboot2.text.entity.Item">
         select id,name,price,category_id as categoryId from item
     </select>
+    <select id="selectById" resultType="com.fullnesssboot2.text.entity.Item">
+        select id,name,price,category_id as categoryId from item where id = #{id}
+    </select>
 </mapper>
