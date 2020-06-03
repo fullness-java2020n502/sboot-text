@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{exercise.title05_enter}"></title>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div align="center">
+            <div class="page-header">
+                <h3 th:text="#{exercise.title05_enter}"></h3>
+            </div>
+            <div class="container">
+                <form class="form-inline" th:action="@{/exercise05}" method="POST" th:object="${calcForm}">
+                    <div class="form-group">
+                        <input type="number" name="value1"  placeholder="値1" th:field="*{value1}" class="form-control">
+                        <label>+</label>
+                        <input type="number" name="value2"  placeholder="値2" th:field="*{value2}" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" type="submit" th:text="#{button.calc}"></button>
+
+
+                    <p>
+                    <div style="color:red;">
+                            <span th:each="error : ${#fields.detailedErrors()}">
+                                <span th:text="${error.message}"></span><br/>
+                            </span>
+                    </div>
+                    </p>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

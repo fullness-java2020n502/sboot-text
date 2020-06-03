@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>navigator</title>
+</head>
+<body>
+    <div th:fragment="pagination_navigator">
+        <nav>
+            <ul class="pagination">
+                <li th:class="${pageList.first} ? 'disabled':''" style="display:inline">
+                    <span th:if="${pageList.first}">&lang;&lang;</span>
+                    <a th:if="${not pageList.first}" th:href="@{${url}(page=0)}">&lang;&lang;</a>
+                </li>
+                <li th:each='i : ${#numbers.sequence(0, pageList.totalPages-1)}' th:class="(${i}==${pageList.number})? 'active' : ''" style="display:inline">
+                    <span th:if='${i}==${pageList.number}' th:text='${i+1}'>1</span>
+                    <a th:if='${i}!=${pageList.number}' th:href="@{${url}(page=${i+1})}">
+                        <span th:text='${i+1}'>1</span>
+                    </a>
+                </li>
+                <li th:class="${pageList.last} ? 'disabled':''" style="display:inline">
+                    <span th:if="${pageList.last}">&rang;&rang;</span>
+                    <a th:if="${not pageList.last}" th:href="@{${url}(page=(${pageList.totalPages}))}">&rang;&rang;</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

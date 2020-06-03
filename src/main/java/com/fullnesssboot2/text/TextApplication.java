@@ -8,13 +8,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+// SpringBootの実行起点になるクラスを実行すれば
+// 自動的にTomcatが起動してコントローラークラスのURLパターンでブラウザからアクセスできる
 @SpringBootApplication
 public class TextApplication {
 	public static void main(String[] args) {
 		// 1. SpringBoot実行結果をApplicatinContext型の変数に入れる
-		ApplicationContext context = SpringApplication.run(TextApplication.class, args);
+		//ApplicationContext context = SpringApplication.run(TextApplication.class, args);
 		// 4. これでSpringBoot起動後の処理を追加できる
-		context.getBean(TextApplication.class).run();
+		//context.getBean(TextApplication.class).run();
+		SpringApplication.run(TextApplication.class, args);
 	}
 
 	// 3. DI（インジェクション）

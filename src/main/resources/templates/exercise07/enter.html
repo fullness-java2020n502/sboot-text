@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{exercise.title07_enter}"></title>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div align="center">
+            <div class="page-header">
+                <h2 th:text="#{exercise.title07_enter}"></h2>
+            </div>
+            <form class="form-horizontal" th:action="@{/exercise07}" method="post" th:object="${itemForm}">
+                <div class="form-group">
+                    <label  class="col-sm-4 control-label" th:text="#{itemForm.name}"></label>
+                    <div class="col-xs-3">
+                        <input type="text" name="name" th:field="*{name}" placeholder="商品名" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" th:text="#{itemForm.price}"></label>
+                    <div class="col-xs-3">
+                        <input type="number" name="price" placeholder="単価" th:field="*{price}" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" th:text="#{itemForm.categoryId}"></label>
+                    <div class="col-xs-3">
+                        <select name="categoryId" class="form-control">
+                            <option th:each="category : ${itemCategorys}"
+                                    th:selected="${category.id == itemForm.categoryId}" th:value="${category.id}" th:text="${category.name}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <button class="btn btn-primary" type="submit" th:text="#{btn.complete}" name="confirm"></button>
+                    </div>
+                </div>
+                <p>
+                    <div style="color:red;">
+                        <span th:each="error : ${#fields.detailedErrors()}">
+                            <span th:text="${error.message}">error</span><br>
+                        </span>
+
+                        <span th:text="${errorMessage}">error</span>
+                    </div>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
