@@ -41,6 +41,11 @@
                             <button class="btn btn-primary" type="submit" th:text="確認"></button>
                         </div>
                     </div>
+                    <div style="color:red;">
+                            <span th:each="error : ${#fields.detailedErrors()}">
+                                <span th:text="${error.message}"></span><br/>
+                            </span>
+                    </div>
                 </form>
             </div>
         </div>
