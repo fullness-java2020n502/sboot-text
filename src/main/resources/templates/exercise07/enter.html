@@ -8,13 +8,12 @@
     <title th:text="#{exercise.title07_enter}"></title>
 </head>
 <body>
-
     <div layout:fragment="content">
         <div align="center">
             <div class="page-header">
                 <h2 th:text="#{exercise.title07_enter}"></h2>
             </div>
-            <form class="form-horizontal" th:action="@{/exercise07}" method="post" th:object="${itemForm}">
+            <form class="form-horizontal" th:action="@{/exercise07/confirm}" method="post" th:object="${itemAddForm}">
                 <div class="form-group">
                     <label  class="col-sm-4 control-label" th:text="#{itemForm.name}"></label>
                     <div class="col-xs-3">
@@ -30,10 +29,7 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label" th:text="#{itemForm.categoryId}"></label>
                     <div class="col-xs-3">
-                        <select name="categoryId" class="form-control">
-                            <option th:each="category : ${itemCategorys}"
-                                    th:selected="${category.id == itemForm.categoryId}" th:value="${category.id}" th:text="${category.name}"></option>
-                        </select>
+                        <input type="number" name="price" placeholder="カテゴリID" th:field="*{categoryId}" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
@@ -46,7 +42,6 @@
                         <span th:each="error : ${#fields.detailedErrors()}">
                             <span th:text="${error.message}">error</span><br>
                         </span>
-
                         <span th:text="${errorMessage}">error</span>
                     </div>
                 </p>
