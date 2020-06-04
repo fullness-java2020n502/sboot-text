@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>セッション</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div align="center">
+        <div class="page-header">
+            <h3>セッション　確認画面</h3>
+        </div>
+        <div align="center">
+            <div class="container">
+                    <div class="form-group">
+                        数値データ:[[${empForm.intValue}]]
+                    </div>
+                    <div class="form-group">
+                        文字列データ:[[${empForm.stringValue}]]
+                    </div>
+                    <div class="form-group">
+                        日付データ:[[${empForm.dateValue}]]
+                    </div>
+                <form  class="form-inline" th:action="@{/session/complete}" method="POST">
+                    <button class="btn btn-primary" type="submit">登録</button>
+                </form>
+                <a href="/session/form">戻る</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
