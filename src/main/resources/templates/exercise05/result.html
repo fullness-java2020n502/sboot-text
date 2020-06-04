@@ -11,16 +11,12 @@
 
     <div layout:fragment="content">
         <div align="center">
-            <div class="page-header">
-                <h3 th:text="#{exercise.title05_result}"></h3>
-            </div>
-            <br>
-            <h3><span th:text="#{result}"></span><span th:text="${result}"></span></h3>
+            <h3>足し算結果</h3>
             <div class="container">
                 <form th:action="@{/exercise05}" method="POST">
                     <div class="form-group">
-                        <button class="btn btn-primary" type="submit" name="back" th:text="#{session.noclear}"></button>
-                        <button class="btn btn-primary" type="submit" name="clear" th:text="#{session.clear}"></button>
+                        <button class="btn btn-primary" type="submit" name="back">セッションを維持したまま戻る</button>
+                        <button class="btn btn-primary" type="submit" name="clear">セッションを削除して戻る</button>
                     </div>
                 </form>
             </div>
