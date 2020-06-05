@@ -41,6 +41,9 @@ public class Exercise01Thymeleaf {
         item3.setCategoryId(1);
         itemList.add(item3);
         model.addAttribute("list",itemList);
+
+        // 条件分岐の確認
+        model.addAttribute("isLogin",false);
         return "thym-exe-01";
     }
 }

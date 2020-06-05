@@ -9,6 +9,8 @@
 <body>
 <div layout:fragment="content">
     <div align="center">
+        <div th:if="${isLogin}">ログインしています</div>
+        <div th:unless="${isLogin}">ログインしていません</div>
         <div class="page-header"><h2 th:text="メニュー"></h2></div>
         <table border="1">
             <tr>
