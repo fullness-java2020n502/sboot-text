@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html layout:decorator="/common/layout"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div layout:fragment="content">
+    <div align="center">
+        <h1>ログイン</h1>
+        <div style="color:red;">
+            <p>
+                <!--login失敗時のメッセージ-->
+                <span th:if="${session['SPRING_SECURITY_LAST_EXCEPTION'] != null}">
+                    <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
+                </span>
+            </p>
+        </div>
+        <form th:action="@{/authenticate}" method="POST">
+            <input type="text" name="username" placeholder="ユーザ名"><br>
+            <input type="text" name="password" placeholder="パスワード">
+            <input type="submit" value="登録">
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html layout:decorator="/common/layout"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<div layout:fragment="content">
+    <div align="center">
+        <div class="page-header"><h2 th:text="メニュー"></h2></div>
+        <form th:action="@{/menu}" method="POST">
+            <span sec:authorize="hasRole('GUEST')">
+                <p><button type="submit" class="btn btn-primary" name="exercise" value="1">機能-A</button></p>
+            </span>
+            <span sec:authorize="hasRole('USER')">
+                <p><button type="submit" class="btn btn-primary" name="exercise" value="2">機能-B</button></p>
+            </span>
+            <span sec:authorize="hasRole('ADMIN')">
+                <p><button type="submit" class="btn btn-primary" name="exercise" value="3">機能-C</button></p>
+                <p><button type="submit" class="btn btn-primary" name="exercise" value="4">機能-D</button></p>
+            </span>
+        </form>
+        <div sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="POST">
+                ユーザー名:<span sec:authentication="principal.username"></span>
+                <button type="submit" class="btn btn-success">ログアウト</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

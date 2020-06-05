@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fullnesssboot2.text.repository.AccountRepository">
+    <resultMap id="accountResult" type="Account">
+        <id property="id" column="user_id" />
+        <result property="userName" column="user_name" />
+        <result property="password" column="password" />
+        <result property="displayName" column="display_name"/>
+        <result property="enabled" column="enabled" />
+        <result property="roleId" column="role_id" />
+        <association property="accountRole" javaType="AccountRole">
+            <id property="roleId" column="roleId" />
+            <result property="roleName" column="roleName" />
+        </association>
+    </resultMap>
+    <select id="findByUsername" resultMap="accountResult">
+        SELECT
+            a.user_id,
+            a.user_name,
+            a.password,
+            a.display_name,
+            a.enabled,
+            ar.role_id AS roleId,
+            ar.role_name AS roleName
+        FROM
+            account a
+        JOIN
+            account_role ar
+        ON
+            a.role_id = ar.role_id
+        WHERE
+            a.user_name = #{username}
+    </select>
+</mapper>
