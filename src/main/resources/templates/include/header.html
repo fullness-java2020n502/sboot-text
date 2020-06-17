@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>ヘッダー</title>
+</head>
+<body>
+<div th:fragment="common_header">
+    <nav>
+        <a th:href="@{/menu1}">メニュー1</a>
+        <a th:href="@{/menu2}">メニュー2</a>
+        <a th:href="@{/menu3}">メニュー3</a>
+    </nav>
+</div>
+</body>
+</html>
