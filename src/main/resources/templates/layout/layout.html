@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- htmlタグにxmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"を追加 -->
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <!-- includeに指定する値はtemplatesディレクトリからの相対パス -->
+            <div th:include="layout/header :: common_header">
+            </div>
+        </div>
+        <div>
+            <div layout:fragment="content">
+                <p>個別部分で定義する内容</p>
+            </div>
+        </div>
+        <div>
+            <!-- includeに指定する値はtemplatesディレクトリからの相対パス -->
+            <div th:include="layout/footer :: common_footer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

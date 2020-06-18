@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LayoutController {
     @GetMapping
     public String layout(){
-        return "include/content";
+        return "layout/menu";
     }
 }
